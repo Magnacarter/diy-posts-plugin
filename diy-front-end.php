@@ -55,11 +55,34 @@ function diy_filter_content( $content ) {
 
 	$post_id = $post->ID;
 
-	$time   = get_post_custom_values( 'diy_time', $post_id );
+	$custom_fields = get_post_custom( $post_id );
 
-	$cost   = get_post_custom_values( 'diy_cost', $post_id );
+	$time   = ( isset( $custom_fields['diy_time'] ) ) ? $custom_fields['diy_time'] : '';
 
-	$rating = get_post_custom_values( 'diy_rating', $post_id );
+	$cost   = ( isset( $custom_fields['diy_cost'] ) ) ? $custom_fields['diy_cost'] : '';
+
+	$rating = ( isset( $custom_fields['diy_rating'] ) ) ? $custom_fields['diy_rating'] : '';
+
+	$cfs = array();
+
+	$cfs["Required Time"] = $time;
+
+	$cfs["Job Cost"] = $cost; 
+
+	$cfs["Skill Level"] = $rating;
+
+	$list = array();
+
+	// Build array from user inputs
+	foreach ( $cfs as $message => $cf ) :
+
+		if ( $cf!== "null" && $cf !== null && $cf !== "" ) {
+
+			$list[$message] = $cf;
+
+		}
+
+	endforeach;
 
 	if ( ! is_single() ) {
 
@@ -67,42 +90,48 @@ function diy_filter_content( $content ) {
 
 	}
 
-	if ( ! isset( $time ) || ! isset( $cost ) || ! isset( $rating ) ) {
-
-        return;
-
-    }
-
 	// Add DIY post meta to top of content
-    $content = sprintf(
+	// Check all three user inputs to see if they're all empty. If not, render the diy box.
+	if ( $list['Required Time'][0] != "" || $list['Job Cost'][0] != "" || $list['Skill Level'][0] != "null" ) {
 
-        '<div class="diy-posts-container">
+		ob_start();
 
-        	<h2>DIY Job Requirements</h2>
+	    ?>
 
-        	<ul>
+	        <div class="diy-posts-container">
 
-        		<li>Time Required : %s</li>
+	        	<h2>DIY Job Requirements</h2>
 
-        		<li>Cost : %s</li>
+	        	<ul>
 
-        		<li>Skill Level : %s</li>
+	        		<?php foreach ( $list as $key => $value ) : ?>
 
-        	</ul>
+	        			<!-- if a key doesn't have a value, exclude from the li's -->
+	        			<?php if ( $value[0] != "" && $value[0] !== "null" ) : ?>
 
-        </div>%s',
+	        				<li><?php echo esc_html( $key ) ?>: <?php echo esc_html( $value[0] ) ?></li>
 
-        $time[0],
+	        			<?php endif ?>
 
-        $cost[0],
+	        		<?php endforeach ?>
 
-        $rating[0],
+	        	</ul>
 
-        $content
+	        </div>
 
-    );
+	     <?php
 
-	return $content;
+	    $diy_box = ob_get_clean();
+
+	    $diy_box .= $content;
+
+		return $diy_box;
+
+	} else {
+
+		return $content;
+
+	}
 
 }
 add_filter( 'the_content', 'diy_filter_content' );

@@ -120,6 +120,8 @@ class DIY_Meta_Box {
 		echo '				<option value="Weekend Warrior"' . selected( $diy_rating, "Weekend Warrior" ) . '>Weekend Warrior</option>';
 		echo '				<option value="Tool Collector"'  . selected( $diy_rating, "Tool Collector" )  . '>Tool Collector</option>';
 		echo '				<option value="Car Whisperer"'   . selected( $diy_rating, "Car Whisperer" )   . '>Car Whisperer</option>';
+		echo '				<option value="null"'            . selected( $diy_rating, "null" )            . '>No Rating</option>';
+
 		echo '			</select>';
 		echo '		</td>';
 		echo '	</tr>';
