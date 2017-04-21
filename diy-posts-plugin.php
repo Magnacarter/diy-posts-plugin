@@ -45,6 +45,8 @@ class DIY_Posts_Plugin {
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 
+		require_once DIY_PLUGIN_DIR . 'diy-custom-fields.php';
+
 	}
 
 	/**
@@ -168,12 +170,12 @@ class DIY_Posts_Plugin {
 				jQuery( '.diy-color-picker-input' ).on( 'focus', function() {
 					var $this = jQuery( this );
 
-					$this.next( '.diy-color-picker' ).show();
+					$this.next( '.diy-color-picker' ).show( 500 );
 				});
 				jQuery( '.diy-color-picker-input' ).on( 'focusout', function() {
 					var $this = jQuery( this );
 
-					$this.next( '.diy-color-picker' ).hide();
+					$this.next( '.diy-color-picker' ).hide( 500 );
 				});
 				jQuery( '.diy-color-picker' ).each( function() {
 					var $this = jQuery( this ),
