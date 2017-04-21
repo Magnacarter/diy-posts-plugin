@@ -17,9 +17,9 @@ Displays a meta box containing information about a DIY project above the post co
 
 == Screenshots ==
 
-![Customizable meta box colors.](https://raw.github.com/magnacarter/diy-posts-plugin/master/assets/screenshot-1.png)
-![Example of meta box.](assets/screenshot-2.png)
-![Post editor view.](assets/screenshot-3.png)
+![Screenshot](https://raw.github.com/magnacarter/diy-posts-plugin/master/assets/screenshot-1.png)
+![Screenshot](https://raw.github.com/magnacarter/diy-posts-plugin/master/assets/screenshot-2.png)
+![Screenshot](https://raw.github.com/magnacarter/diy-posts-plugin/master/assets/screenshot-3.png)
 
 == Changelog ==
 
