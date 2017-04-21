@@ -47,6 +47,8 @@ class DIY_Posts_Plugin {
 
 		require_once DIY_PLUGIN_DIR . 'diy-custom-fields.php';
 
+		require_once DIY_PLUGIN_DIR . 'diy-front-end.php';
+
 	}
 
 	/**
@@ -210,17 +212,6 @@ class DIY_Posts_Plugin {
 		</div>
 
 		<?php
-
-	}
-
-	/**
-	 * Display the DIY meta-data above the post
-	 *
-	 * @action wp_footer
-	 */
-	public static function display_diy_data() {
-
-		require_once DIY_PLUGIN_DIR . 'diy-data.php';
 
 	}
 

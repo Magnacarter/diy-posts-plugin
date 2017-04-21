@@ -97,16 +97,16 @@ class DIY_Meta_Box {
 
 		echo '	<tr>';
 
-		echo '		<th><label for="diy_cost" class="diy_cost_label">' . __( 'Time To Complete', 'text_domain' ) . '</label></th>';
+		echo '		<th><label for="diy_time" class="diy_time_label">' . __( 'Time To Complete', 'text_domain' ) . '</label></th>';
 		echo '		<td>';
-		echo '			<input type="text" id="diy_cost" name="diy_cost" class="diy_cost_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $diy_cost ) . '">';
+		echo '			<input type="text" id="diy_time" name="diy_time" class="diy_time_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $diy_time ) . '">';
 		echo '		</td>';
 		echo '	</tr>';
 
 		echo '	<tr>';
-		echo '		<th><label for="diy_time" class="diy_time_label">' . __( 'Cost', 'text_domain' ) . '</label></th>';
+		echo '		<th><label for="diy_cost" class="diy_cost_label">' . __( 'Cost', 'text_domain' ) . '</label></th>';
 		echo '		<td>';
-		echo '			<input type="text" id="diy_time" name="diy_time" class="diy_time_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $diy_time ) . '">';
+		echo '			<input type="text" id="diy_cost" name="diy_cost" class="diy_cost_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $diy_cost ) . '">';
 		echo '		</td>';
 		echo '	</tr>';
 
@@ -114,10 +114,10 @@ class DIY_Meta_Box {
 		echo '		<th><label for="diy_rating" class="diy_rating_label">' . __( 'Difficulty Rating', 'text_domain' ) . '</label></th>';
 		echo '		<td>';
 		echo '			<select name="diy_rating_select" id="diy_rating_select">';
-		echo '				<option value="oil_changer"'     . selected( $diy_rating, "oil_changer" )     . '>Oil Changer</option>';
-		echo '				<option value="weekend_warrior"' . selected( $diy_rating, "weekend_warrior" ) . '>Weekend Warrior</option>';
-		echo '				<option value="tool_collector"'  . selected( $diy_rating, "tool_collector" )  . '>Tool Collector</option>';
-		echo '				<option value="car_whisperer"'   . selected( $diy_rating, "car_whisperer" )   . '>Car Whisperer</option>';
+		echo '				<option value="Oil Changer"'     . selected( $diy_rating, "Oil Changer" )     . '>Oil Changer</option>';
+		echo '				<option value="Weekend Warrior"' . selected( $diy_rating, "Weekend Warrior" ) . '>Weekend Warrior</option>';
+		echo '				<option value="Tool Collector"'  . selected( $diy_rating, "Tool Collector" )  . '>Tool Collector</option>';
+		echo '				<option value="Car Whisperer"'   . selected( $diy_rating, "Car Whisperer" )   . '>Car Whisperer</option>';
 		echo '			</select>';
 		echo '		</td>';
 		echo '	</tr>';
@@ -173,9 +173,9 @@ class DIY_Meta_Box {
 		$diy_rating = isset( $_POST['diy_rating_select'] ) ? esc_attr( $_POST['diy_rating_select'] ) : '';
 
 		// Update the meta field in the database.
-		update_post_meta( $post_id, 'diy_time', $diy_cost );
+		update_post_meta( $post_id, 'diy_time', $diy_time );
 
-		update_post_meta( $post_id, 'diy_cost', $diy_time );
+		update_post_meta( $post_id, 'diy_cost', $diy_cost );
 
 		update_post_meta( $post_id, 'diy_rating', $diy_rating );
 
