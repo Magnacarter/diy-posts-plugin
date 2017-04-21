@@ -35,7 +35,6 @@ $background_color = ( isset( $settings['background_color'] ) && ! empty( $settin
 		color: inherit;
 	}
 
-
 </style>
 
 <?php

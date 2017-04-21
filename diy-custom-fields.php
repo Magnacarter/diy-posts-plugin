@@ -10,6 +10,8 @@ class DIY_Meta_Box {
 	public static $instance;
 
 	/**
+	 * Class Constructor
+	 *
 	 * Hook our metabox into the post admin area
 	 *
 	 * @action load-post.php
