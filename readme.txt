@@ -17,9 +17,9 @@ Displays a meta box containing information about a DIY project above the post co
 
 == Screenshots ==
 
-1. Customizable meta box colors.
-2. Example of meta box.
-3. Post editor view.
+1. Customizable meta box colors.(assets/screenshot-1.png)
+2. Example of meta box.(assets/screenshot-2.png)
+3. Post editor view.(assets/screenshot-3.png)
 
 == Changelog ==
 
