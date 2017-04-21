@@ -93,9 +93,9 @@ function diy_filter_content( $content ) {
 
         </div>%s',
 
-        $cost[0],
-
         $time[0],
+
+        $cost[0],
 
         $rating[0],
 
